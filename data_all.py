@@ -1,0 +1,1 @@
+filename = open('yiduan.txt')

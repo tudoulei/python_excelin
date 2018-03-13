@@ -1,1 +1,0 @@
-filename = open('yiduan.txt')

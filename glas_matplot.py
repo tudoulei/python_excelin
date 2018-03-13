@@ -3,8 +3,9 @@
 import xlrd
 import numpy as np
 import matplotlib.pyplot as plt
-from test import gauss_lvbo
+import scipy
 import math
+from gauss_juanji import gauss_lvbo
 
 "***********显示原始图像************"
 excelFile = ('test5.xls')
@@ -77,14 +78,3 @@ plt.show()
 "*******************高斯函数************************"
 
 
-def gauss_lvbo(x):
-    sita = np.std(x)
-    print(sita)
-    pi = 3.14
-    h = np.zeros(544)
-    for t in range(0, 544):
-        h[t] = (-t / (math.sqrt(2 * pi * sita ** 3))) * math.exp(-(t ** 2) / (2 * sita ** 2))
-    print(h)
-    plt.plot(h)
-    arr = scipy.signal.convolve(x, h, mode='same')  # 卷积运算
-    return arr

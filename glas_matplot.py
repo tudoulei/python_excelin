@@ -3,8 +3,6 @@
 import xlrd
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy
-import math
 from gauss_juanji import gauss_lvbo
 
 "***********显示原始图像************"

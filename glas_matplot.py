@@ -3,6 +3,9 @@
 import xlrd
 import numpy as np
 import matplotlib.pyplot as plt
+from pandas import DataFrame
+import pandas as pd
+import scipy.signal
 from gauss_juanji import gauss_lvbo
 
 "***********显示原始图像************"
@@ -61,17 +64,34 @@ plt.plot(zhendata_zhengze, color='r')
 plt.xlabel('xiangduishijian/ns')
 plt.ylabel('dianyazhi')
 plt.title('UTC_time: %s ' % index)
+plt.show()
 
 "***********************数据解压缩*************************"
 
-"***********************高斯滤波*************************"
-lvbo = gauss_lvbo(zhendata_dianya)
-fig.add_subplot(2, 2, 4)
-plt.plot(lvbo)
-plt.xlabel('xiangduishijian/ns')
-plt.ylabel('dianyazhi')
-plt.title('UTC_time: %s ' % index)
+"***********************窗函数滤波*************************"
+# 基于窗函数的林区ICESat-GLAS波形数据消噪研究
+# Python数据分析_Pandas06_窗函数 - CSDN博客  http://blog.csdn.net/you_are_my_dream/article/details/70243341
+
+b = {'zhenshu': zhendata}
+fram = DataFrame(b)
+#fram['zhenshu'].plot()  既然运行不了
+
+fram['1'] = fram['zhenshu'].rolling(window=4).mean()
+fram['1'].plot()
+
+fram['2'] = fram['zhenshu'].rolling(window=5).std()
+fram['2'].plot()
+
 plt.show()
+
+#有问题的高斯滤波
+#lvbo = gauss_lvbo(zhendata_dianya)
+#fig.add_subplot(2, 2, 4)
+#plt.plot(lvbo)
+#plt.xlabel('xiangduishijian/ns')
+#plt.ylabel('dianyazhi')
+#plt.title('UTC_time: %s ' % index)
+#plt.show()
 
 "*******************高斯函数************************"
 

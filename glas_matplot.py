@@ -74,14 +74,14 @@ plt.show()
 
 b = {'zhenshu': zhendata}
 fram = DataFrame(b)
-#fram['zhenshu'].plot()  既然运行不了
 
+# 还可以加入更多窗函数类型
 fram['1'] = fram['zhenshu'].rolling(window=4).mean()
-fram['1'].plot()
-
 fram['2'] = fram['zhenshu'].rolling(window=5).std()
-fram['2'].plot()
+fram['3'] = fram['zhenshu'].rolling(window=5).mean()
 
+
+fram[['zhenshu', '1', '2', '3']].plot(subplots=True, figsize=(9, 5), grid=True)
 plt.show()
 
 #有问题的高斯滤波
@@ -94,5 +94,10 @@ plt.show()
 #plt.show()
 
 "*******************高斯函数************************"
+
+
+
+"*******************去噪************************"
+# 采 用 信 噪 比 ( SNR ) 和 均 方 根 误 差( RMSE) 做为评价指标，对同一波形数据去噪效果进行评价
 
 

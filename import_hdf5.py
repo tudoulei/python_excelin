@@ -1,3 +1,5 @@
+"读取h5文件算法"
+
 import h5py  #导入工具包
 import numpy as np
 #HDF5的写入：

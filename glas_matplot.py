@@ -1,5 +1,5 @@
-# !/usr/bin/env python
-# encoding=utf-8
+"显示波形算法"
+
 import xlrd
 import numpy as np
 import matplotlib.pyplot as plt

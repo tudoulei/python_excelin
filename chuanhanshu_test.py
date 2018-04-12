@@ -1,3 +1,5 @@
+"窗函数算法"
+
 import xlrd
 import numpy as np
 import random
